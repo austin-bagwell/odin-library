@@ -1,0 +1,102 @@
+html {
+  box-sizing: border-box;
+  line-height: 1.5;
+  margin: 0;
+  font-family: Poppins;
+}
+
+.body {
+  display: block;
+  background-color: rgb(249, 211, 154);
+}
+
+.header {
+  margin-top: 0;
+  font-size: 45px;
+  text-align: center;
+  box-shadow: 3px 0px grey;
+  margin-bottom: 1rem;
+}
+
+h1 {
+  margin: 0;
+}
+
+.main {
+  min-height: 85vh;
+  max-width: 75vw;
+  display: block;
+  margin: auto;
+  padding-top: 2rem;
+  background-color: whitesmoke;
+}
+
+.add-book-wrapper {
+  display: flex;
+  justify-content: center;
+}
+
+.book-list {
+  max-width: 80vw;
+  display: flex;
+  justify-content: center;
+  margin: auto;
+  padding-top: 1.5rem;
+}
+
+.btn {
+  cursor: pointer;
+  border: none;
+  box-shadow: 3px 3px 5px gray;
+  color: black;
+  background-color: rgb(127, 255, 255);
+}
+
+.add-book-btn {
+  min-width: 20rem;
+  min-height: 5rem;
+}
+
+.card {
+  min-height: 10em;
+  min-width: 10em;
+  display: flex;
+  flex-direction: column;
+  margin: 1rem;
+  padding: 1.5rem;
+  border-radius: 3px;
+  border: 1px solid black;
+  box-shadow: 3px 3px grey;
+}
+
+.add-book-form {
+  display: flex;
+  flex-direction: column;
+  min-height: 250px;
+  min-width: auto;
+  padding: 4rem;
+  background-color: ghostwhite;
+}
+
+.hidden {
+  display: none;
+}
+
+.add-book-modal {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  z-index: 1041;
+  transform: translate(-50%, -50%);
+}
+
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 1040;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.174);
+  backdrop-filter: blur(5px);
+}

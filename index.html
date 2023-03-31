@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@500&display=swap"
+      rel="stylesheet"
+    />
+    <link href="./styles.css" rel="stylesheet" />
+
+    <title>Little Bitty Library</title>
+  </head>
+  <body class="body">
+    <header class="header">
+      <h1>look at my books</h1>
+    </header>
+    <main class="main">
+      <div class="add-book-wrapper">
+        <button class="btn add-book-btn">+ new book</button>
+      </div>
+      <section class="book-list">
+        <div class="card">
+          <p class="book-title">The Hobbit</p>
+          <p class="book-author">J.R.R. Tolkien</p>
+        </div>
+        <div class="card">
+          <p class="book-title">The Hobbit</p>
+          <p class="book-author">J.R.R. Tolkien</p>
+        </div>
+        <div class="card">
+          <p class="book-title">The Hobbit</p>
+          <p class="book-author">J.R.R. Tolkien</p>
+        </div>
+        <div class="card">
+          <p class="book-title">The Hobbit</p>
+          <p class="book-author">J.R.R. Tolkien</p>
+        </div>
+      </section>
+    </main>
+    <div class="add-book-modal hidden">
+      <form class="add-book-form hidden">
+        <label for="title">Title</label>
+        <input type="text" name="title" />
+        <label for="author">Author</label>
+        <input type="text" name="author" />
+        <label for="pages">Pages</label>
+        <input type="number" name="pages" max="99999" />
+        <button class="btn">Add Book!</button>
+      </form>
+    </div>
+    <div class="modal-overlay hidden"></div>
+  </body>
+  <script src="./script.js"></script>
+</html>
