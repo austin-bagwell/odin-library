@@ -2,9 +2,10 @@ const myLibrary = [];
 
 const body = document.querySelector(".body");
 const addBookBtn = document.querySelector(".add-book-btn");
+const submitFormBtn = document.querySelector(".btn.submit-form");
 
-// addBookBtn.addEventListener("click", toggleModal);
 body.addEventListener("click", toggleModal);
+submitFormBtn.addEventListener("click", handleSubmit);
 
 class Book {
   constructor(title, author, pages, read) {
@@ -14,27 +15,31 @@ class Book {
     this.read = read;
   }
 
-  readBook() {
+  isRead() {
     this.read = !this.read;
   }
 }
-function addBookToLibrary(e) {
+
+function getFormData(form) {
+  // https://developer.mozilla.org/en-US/docs/Web/API/FormData/
+}
+
+function handleSubmit(e) {
   e.preventDefault();
-  openModal();
+  myLibrary.push("a book was added to the library");
+  console.log(myLibrary);
 }
 
 function toggleModal(e) {
-  const modal = document.querySelector(".add-book-modal");
-  const form = document.querySelector(".add-book-form");
   const overlay = document.querySelector(".modal-overlay");
+  const openModalBtn = document.querySelector(".add-book-btn");
+  const modalElements = document.querySelectorAll(".modal");
+  const toggleElements = [overlay, openModalBtn];
+  const formSubmitBtn = document.querySelector(".btn.submit-form");
 
-  if (e.target.classList.contains("add-book-btn")) {
-    modal.classList.toggle("hidden");
-    form.classList.toggle("hidden");
-    overlay.classList.toggle("hidden");
-  } else if (e.target.classList.contains("modal-overlay")) {
-    modal.classList.toggle("hidden");
-    form.classList.toggle("hidden");
-    overlay.classList.toggle("hidden");
+  if (toggleElements.includes(e.target)) {
+    modalElements.forEach((el) => el.classList.toggle("hidden"));
+  } else if (e.target === formSubmitBtn) {
+    modalElements.forEach((el) => el.classList.toggle("hidden"));
   }
 }
