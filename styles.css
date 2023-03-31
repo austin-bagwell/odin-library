@@ -52,9 +52,19 @@ h1 {
   background-color: rgb(127, 255, 255);
 }
 
+.btn:hover {
+  background-color: rgb(127, 242, 255);
+  transform: scale(1.03);
+}
+
+.btn:focus {
+  background-color: rgb(127, 242, 255);
+}
+
 .add-book-btn {
   min-width: 20rem;
   min-height: 5rem;
+  font-size: 24px;
 }
 
 .card {
@@ -72,10 +82,20 @@ h1 {
 .add-book-form {
   display: flex;
   flex-direction: column;
-  min-height: 250px;
   min-width: auto;
-  padding: 4rem;
+  padding: 2rem 4rem;
+  border-radius: 3px;
   background-color: ghostwhite;
+}
+
+.add-book-form .btn {
+  min-height: 2rem;
+  margin-top: 1.75rem;
+  box-shadow: 1px 1px 5px grey;
+}
+
+.add-book-form input {
+  min-width: 13vw;
 }
 
 .hidden {
