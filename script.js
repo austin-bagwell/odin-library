@@ -20,16 +20,18 @@ class Book {
   _id;
 }
 
-// const hobbit = new Book("The Hobbit", "J.R.R Tolkien", "350", "true");
 const myLibrary = [];
-// renderBooks(myLibrary);s
 
 function removeBook(e) {
   if (e.target.classList.contains("remove-book")) {
     const id = Number(e.target.id);
     const book = myLibrary.findIndex((book) => book._id === id);
     myLibrary.splice(book, 1);
-    renderBooks(myLibrary);
+    const noBookMsg = "<h3>you ain't got no books yet...</h3>";
+
+    myLibrary.length > 0
+      ? renderBooks(myLibrary)
+      : (bookList.innerHTML = noBookMsg);
   }
 }
 
