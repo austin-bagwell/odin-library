@@ -15,6 +15,7 @@ class Book {
     this.pages = pages;
     this.read = read === "true";
   }
+  _id;
 }
 
 function handleSubmit(e) {
@@ -25,9 +26,12 @@ function handleSubmit(e) {
   const { title, author, pages, read } = Object.fromEntries(data);
   const book = new Book(title, author, pages, read);
   myLibrary.push(book);
-  myLibrary.map((book) => {
-    bookList.insertAdjacentHTML("beforeend", makeCard(book));
+  myLibrary.map((book, i) => {
+    const html = makeCard(book);
+    book._id = i;
+    bookList.insertAdjacentHTML("beforeend", html);
   });
+  console.log(myLibrary);
 }
 
 function makeCard(book) {
