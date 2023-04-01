@@ -1,8 +1,3 @@
-## FIXME
+A basic library app. Add books and set their read status.
 
-form data does not clear after submission
-add flex-wrap so that books remain inside their book-list container
-
-# TODO
-
-make mobile friendly
+Currently, no data is stored between sessions. If you refresh or leave the page, the books you've added will be lost.
