@@ -1,32 +1,27 @@
-const myLibrary = [];
+"use strict";
 
 const body = document.querySelector(".body");
-const addBookBtn = document.querySelector(".add-book-btn");
-const submitFormBtn = document.querySelector(".btn.submit-form");
+const form = document.querySelector(".add-book-form");
 
 body.addEventListener("click", toggleModal);
-submitFormBtn.addEventListener("click", handleSubmit);
+form.addEventListener("submit", handleSubmit);
+
+const myLibrary = [];
 
 class Book {
-  constructor(title, author, pages, read) {
+  constructor(title, author, pages) {
     this.title = title;
     this.author = author;
     this.pages = pages;
-    this.read = read;
   }
-
-  isRead() {
-    this.read = !this.read;
-  }
-}
-
-function getFormData(form) {
-  // https://developer.mozilla.org/en-US/docs/Web/API/FormData/
 }
 
 function handleSubmit(e) {
   e.preventDefault();
-  myLibrary.push("a book was added to the library");
+  const data = new FormData(form);
+  const { title, author, pages } = Object.fromEntries(data);
+  const book = new Book(title, author, pages);
+  myLibrary.push(book);
   console.log(myLibrary);
 }
 
