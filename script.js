@@ -9,19 +9,21 @@ form.addEventListener("submit", handleSubmit);
 const myLibrary = [];
 
 class Book {
-  constructor(title, author, pages) {
+  constructor(title, author, pages, read) {
     this.title = title;
     this.author = author;
     this.pages = pages;
+    this.read = read === "true";
   }
 }
 
 function handleSubmit(e) {
   e.preventDefault();
   const data = new FormData(form);
-  const { title, author, pages } = Object.fromEntries(data);
-  const book = new Book(title, author, pages);
+  const { title, author, pages, read } = Object.fromEntries(data);
+  const book = new Book(title, author, pages, read);
   myLibrary.push(book);
+  console.log(book);
 }
 
 function toggleModal(e) {

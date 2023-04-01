@@ -50,7 +50,9 @@ h1 {
   display: flex;
   flex-direction: column;
   margin: 1rem;
+  margin-top: 0;
   padding: 1.5rem;
+  padding-top: 0.75rem;
   border-radius: 3px;
   border: 1px solid black;
   box-shadow: 3px 3px grey;
@@ -72,11 +74,9 @@ h1 {
 }
 
 .remove-book {
-  position: relative;
-  top: -1rem;
-  left: 5.35rem;
   font-size: 18px;
   font-weight: 700;
+  cursor: pointer;
 }
 
 /* BUTTONS */
@@ -84,15 +84,13 @@ h1 {
   cursor: pointer;
   border: none;
   font-size: 24px;
-  box-shadow: 3px 3px 5px gray;
+  box-shadow: 1px 4px 5px gray;
   color: black;
   background-color: rgb(127, 255, 255);
 }
 
 .btn:hover {
-  font-size: 25px;
-  transition: all 0.1s ease-in-out;
-  transform: scale(1.03);
+  font-size: 26px;
   background-color: rgb(127, 242, 255);
 }
 
@@ -123,10 +121,7 @@ h1 {
 
 .add-book-form input {
   min-width: 13vw;
-}
-
-.hidden {
-  display: none;
+  margin-bottom: 0.25rem;
 }
 
 .add-book-modal {
@@ -146,4 +141,24 @@ h1 {
   height: 100vh;
   background-color: rgba(0, 0, 0, 0.174);
   backdrop-filter: blur(5px);
+}
+
+/* ANIMATIONS */
+.grow:hover {
+  transition: all 0.1s ease-in-out;
+  transform: scale(1.08);
+}
+
+/* GENERICS OR SOMETHING */
+.hidden {
+  display: none;
+}
+
+.flex-row {
+  display: flex;
+  flex-direction: row;
+}
+
+.flex-end {
+  justify-content: flex-end;
 }

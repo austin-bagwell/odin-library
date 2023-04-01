@@ -20,11 +20,13 @@
     </header>
     <main class="main">
       <div class="add-book-wrapper">
-        <button class="btn add-book-btn">+ new book</button>
+        <button class="btn add-book-btn grow">+ new book</button>
       </div>
       <section class="book-list">
         <div class="book-card">
-          <span class="remove-book">X</span>
+          <div class="flex-row flex-end">
+            <span class="remove-book grow">X</span>
+          </div>
           <p class="book-title">The Hobbit</p>
           <p class="by-author">by</p>
           <p class="book-author">J.R.R. Tolkien</p>
@@ -38,7 +40,9 @@
           </div>
         </div>
         <div class="book-card">
-          <span class="remove-book">X</span>
+          <div class="flex-row flex-end">
+            <span class="remove-book grow">X</span>
+          </div>
           <p class="book-title">The Hobbit</p>
           <p class="by-author">by</p>
           <p class="book-author">J.R.R. Tolkien</p>
@@ -61,7 +65,13 @@
         <input type="text" name="author" maxlength="50" />
         <label for="pages">Pages</label>
         <input type="number" name="pages" max="99999" />
-        <button type="submit" class="btn submit-form">Add a book!</button>
+        <label for="read">Have you read this?</label>
+        <select name="read">
+          <option value="">Select one...</option>
+          <option value="true">Yes</option>
+          <option value="false">No</option>
+        </select>
+        <button type="submit" class="btn submit-form grow">Add a book!</button>
       </form>
     </div>
     <div class="modal-overlay modal hidden"></div>
