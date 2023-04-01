@@ -20,9 +20,9 @@ class Book {
   _id;
 }
 
-const hobbit = new Book("The Hobbit", "J.R.R Tolkien", "350", "true");
-const myLibrary = [hobbit];
-renderBooks(myLibrary);
+// const hobbit = new Book("The Hobbit", "J.R.R Tolkien", "350", "true");
+const myLibrary = [];
+// renderBooks(myLibrary);s
 
 function removeBook(e) {
   if (e.target.classList.contains("remove-book")) {
