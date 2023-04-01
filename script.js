@@ -17,13 +17,40 @@ class Book {
   }
 }
 
+function makeCard(book) {
+  const template = `
+    <div class="book-card">
+    <div class="flex-row flex-end">
+      <span class="remove-book grow">X</span>
+    </div>
+    <p class="book-title">${book.title}</p>
+    <p class="by-author">by</p>
+    <p class="book-author">${book.author}</p>
+    <p>page count: <span class="page-count">${book.pages}</span></p>
+    <div class="read-status-wrapper">
+      <input type="checkbox" name="read" value="false" ${
+        book.read ? "checked" : ""
+      } />
+      <label for="read">${
+        book.read ? "I've read this book" : "Have not read it yet"
+      }</label>
+    </div>
+  </div>`;
+
+  return template;
+}
+
 function handleSubmit(e) {
   e.preventDefault();
+  const bookList = document.querySelector(".book-list");
+  bookList.innerHTML = "";
   const data = new FormData(form);
   const { title, author, pages, read } = Object.fromEntries(data);
   const book = new Book(title, author, pages, read);
   myLibrary.push(book);
-  console.log(book);
+  myLibrary.map((book) => {
+    bookList.insertAdjacentHTML("beforeend", makeCard(book));
+  });
 }
 
 function toggleModal(e) {
