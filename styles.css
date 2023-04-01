@@ -71,6 +71,14 @@ h1 {
   margin-top: 1.5rem;
 }
 
+.remove-book {
+  position: relative;
+  top: -1rem;
+  left: 5.35rem;
+  font-size: 18px;
+  font-weight: 700;
+}
+
 /* BUTTONS */
 .btn {
   cursor: pointer;

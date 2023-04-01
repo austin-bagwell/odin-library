@@ -22,7 +22,6 @@ function handleSubmit(e) {
   const { title, author, pages } = Object.fromEntries(data);
   const book = new Book(title, author, pages);
   myLibrary.push(book);
-  console.log(myLibrary);
 }
 
 function toggleModal(e) {
