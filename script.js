@@ -1,15 +1,4 @@
 "use strict";
-
-const body = document.querySelector(".body");
-const form = document.querySelector(".add-book-form");
-const bookList = document.querySelector(".book-list");
-// const bookCards = document.querySelectorAll(".book-card");
-
-body.addEventListener("click", toggleModal);
-form.addEventListener("submit", handleSubmit);
-bookList.addEventListener("click", removeBook);
-// bookCards.forEach((card) => card.addEventListener("click", removeBook));
-
 class Book {
   constructor(title, author, pages, read) {
     this.title = title;
@@ -17,10 +6,29 @@ class Book {
     this.pages = pages;
     this.read = read === "true";
   }
-  _id;
+  toggleRead() {
+    this.read = !this.read;
+  }
 }
-
 const myLibrary = [];
+
+const body = document.querySelector(".body");
+const form = document.querySelector(".add-book-form");
+const bookList = document.querySelector(".book-list");
+
+body.addEventListener("click", toggleModal);
+form.addEventListener("submit", handleSubmit);
+bookList.addEventListener("click", removeBook);
+bookList.addEventListener("click", toggleRead);
+
+function toggleRead(e) {
+  if (e.target.classList.contains("select-read")) {
+    const id = myLibrary.findIndex((book) => (book._id = e.target.id));
+    const book = myLibrary[id];
+    book.toggleRead();
+    renderBooks(myLibrary);
+  }
+}
 
 function removeBook(e) {
   if (e.target.classList.contains("remove-book")) {
@@ -56,7 +64,7 @@ function renderBooks(library) {
 
 function makeCard(book) {
   const template = `
-    <div class="book-card">
+    <div class="book-card book-id-${book._id}">
     <div class="flex-row flex-end">
       <span class="remove-book grow" id="${book._id}">X</span>
     </div>
@@ -65,9 +73,9 @@ function makeCard(book) {
     <p class="book-author">${book.author}</p>
     <p>page count: <span class="page-count">${book.pages}</span></p>
     <div class="read-status-wrapper">
-      <input type="checkbox" name="read" value="false" ${
-        book.read ? "checked" : ""
-      } />
+      <input type="checkbox" name="read" value="false" class="select-read" id="${
+        book._id
+      }" ${book.read ? "checked" : ""} />
       <label for="read">${
         book.read ? "I've read this book" : "Have not read it yet"
       }</label>

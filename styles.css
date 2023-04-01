@@ -7,7 +7,7 @@ html {
 
 .body {
   display: block;
-  background-color: rgb(249, 211, 154);
+  background-color: rgb(252, 211, 150);
 }
 
 .header {
@@ -39,6 +39,7 @@ h1 {
   max-width: 80vw;
   display: flex;
   justify-content: center;
+  flex-wrap: wrap;
   margin: auto;
   padding-top: 1.5rem;
 }
