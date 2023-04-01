@@ -50,6 +50,7 @@ function handleSubmit(e) {
   const book = new Book(title, author, pages, read);
   myLibrary.push(book);
   renderBooks(myLibrary);
+  form.reset();
 }
 
 function renderBooks(library) {
