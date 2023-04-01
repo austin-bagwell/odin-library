@@ -27,14 +27,14 @@ function handleSubmit(e) {
 
 function toggleModal(e) {
   const overlay = document.querySelector(".modal-overlay");
-  const openModalBtn = document.querySelector(".add-book-btn");
+  const addBookBtn = document.querySelector(".add-book-btn");
+  const submitFormBtn = document.querySelector(".btn.submit-form");
   const modalElements = document.querySelectorAll(".modal");
-  const toggleElements = [overlay, openModalBtn];
-  const formSubmitBtn = document.querySelector(".btn.submit-form");
+  const toggleElements = [overlay, addBookBtn];
 
   if (toggleElements.includes(e.target)) {
     modalElements.forEach((el) => el.classList.toggle("hidden"));
-  } else if (e.target === formSubmitBtn) {
+  } else if (e.target === submitFormBtn) {
     modalElements.forEach((el) => el.classList.toggle("hidden"));
   }
 }
