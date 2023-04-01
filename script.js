@@ -17,6 +17,19 @@ class Book {
   }
 }
 
+function handleSubmit(e) {
+  e.preventDefault();
+  const bookList = document.querySelector(".book-list");
+  bookList.innerHTML = "";
+  const data = new FormData(form);
+  const { title, author, pages, read } = Object.fromEntries(data);
+  const book = new Book(title, author, pages, read);
+  myLibrary.push(book);
+  myLibrary.map((book) => {
+    bookList.insertAdjacentHTML("beforeend", makeCard(book));
+  });
+}
+
 function makeCard(book) {
   const template = `
     <div class="book-card">
@@ -38,19 +51,6 @@ function makeCard(book) {
   </div>`;
 
   return template;
-}
-
-function handleSubmit(e) {
-  e.preventDefault();
-  const bookList = document.querySelector(".book-list");
-  bookList.innerHTML = "";
-  const data = new FormData(form);
-  const { title, author, pages, read } = Object.fromEntries(data);
-  const book = new Book(title, author, pages, read);
-  myLibrary.push(book);
-  myLibrary.map((book) => {
-    bookList.insertAdjacentHTML("beforeend", makeCard(book));
-  });
 }
 
 function toggleModal(e) {
