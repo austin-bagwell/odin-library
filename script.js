@@ -2,11 +2,13 @@
 
 const body = document.querySelector(".body");
 const form = document.querySelector(".add-book-form");
+const bookList = document.querySelector(".book-list");
+// const bookCards = document.querySelectorAll(".book-card");
 
 body.addEventListener("click", toggleModal);
 form.addEventListener("submit", handleSubmit);
-
-const myLibrary = [];
+bookList.addEventListener("click", removeBook);
+// bookCards.forEach((card) => card.addEventListener("click", removeBook));
 
 class Book {
   constructor(title, author, pages, read) {
@@ -18,27 +20,43 @@ class Book {
   _id;
 }
 
+const hobbit = new Book("The Hobbit", "J.R.R Tolkien", "350", "true");
+const myLibrary = [hobbit];
+renderBooks(myLibrary);
+
+function removeBook(e) {
+  if (e.target.classList.contains("remove-book")) {
+    const id = Number(e.target.id);
+    const book = myLibrary.findIndex((book) => book._id === id);
+    myLibrary.splice(book, 1);
+    renderBooks(myLibrary);
+  }
+}
+
 function handleSubmit(e) {
   e.preventDefault();
-  const bookList = document.querySelector(".book-list");
-  bookList.innerHTML = "";
   const data = new FormData(form);
   const { title, author, pages, read } = Object.fromEntries(data);
   const book = new Book(title, author, pages, read);
   myLibrary.push(book);
-  myLibrary.map((book, i) => {
-    const html = makeCard(book);
+  renderBooks(myLibrary);
+}
+
+function renderBooks(library) {
+  const bookList = document.querySelector(".book-list");
+  bookList.innerHTML = "";
+  library.map((book, i) => {
     book._id = i;
+    const html = makeCard(book);
     bookList.insertAdjacentHTML("beforeend", html);
   });
-  console.log(myLibrary);
 }
 
 function makeCard(book) {
   const template = `
     <div class="book-card">
     <div class="flex-row flex-end">
-      <span class="remove-book grow">X</span>
+      <span class="remove-book grow" id="${book._id}">X</span>
     </div>
     <p class="book-title">${book.title}</p>
     <p class="by-author">by</p>
